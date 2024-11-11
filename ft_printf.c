@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 13:15:16 by aahadji           #+#    #+#             */
-/*   Updated: 2024/11/11 11:53:42 by aahadji          ###   ########.fr       */
+/*   Updated: 2024/11/11 14:49:00 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	 ft_printf("%d \n", ft_printf("%%c"));
+	ft_printf("%d \t %d\n","1234568", 42);
 	return (0);
 }
