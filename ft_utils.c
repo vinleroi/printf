@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/09 10:42:57 by aahadji           #+#    #+#             */
-/*   Updated: 2024/11/10 11:17:30 by aahadji          ###   ########.fr       */
+/*   Updated: 2024/11/11 11:49:35 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ int	ft_putstr_fd(const char *s, int fd)
 	int	i;
 
 	i = 0;
+	if (!s)
+		return (ft_putstr_fd("(null)", 1));
 	while (s[i])
 	{
 		if (ft_putchar_fd(s[i], fd))
@@ -32,14 +34,14 @@ int	ft_putstr_fd(const char *s, int fd)
 	return (i);
 }
 
-static void	write_nbr(int n, int fd, int *len)
+static void	write_nbr(long n, int fd, int *len)
 {
 	char	result;
 
 	if (n < 10)
 	{
 		result = n + '0';
-		write(fd, &result, 1);
+		ft_putchar_fd(result, 1);
 		(*len)++;
 	}
 	else
@@ -51,28 +53,27 @@ static void	write_nbr(int n, int fd, int *len)
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	int	*len;
+	int	len;
 
 	len = 0;
 	if (n == -2147483648)
-	{
-		write(fd, "-2147483648", 11);
-		return (11);
-	}
+		return (ft_putstr_fd("-2147483648", fd));
 	if (n < 0)
 	{
-		write(fd, "-", 1);
+		len += ft_putchar_fd('-', fd);
 		n *= -1;
 	}
-	write_nbr(n, fd, len);
-	return (*len);
+	write_nbr(n, fd, &len);
+	return (len);
 }
 
-int	ft_putnbr_u_fd(const unsigned int n, int fd)
+int	ft_putnbr_u_fd( unsigned int n, int fd)
 {
-	int	*len;
+	int	len;
 
+	if (n == 4294967295)
+		return (ft_putstr_fd("4294967295", fd));
 	len = 0;
-	write_nbr(n, fd, len);
-	return (*len);
+	write_nbr(n, fd, &len);
+	return (len);
 }

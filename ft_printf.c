@@ -6,7 +6,7 @@
 /*   By: aahadji <aahadji@student.s19.be>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 13:15:16 by aahadji           #+#    #+#             */
-/*   Updated: 2024/11/10 20:50:51 by aahadji          ###   ########.fr       */
+/*   Updated: 2024/11/11 11:53:42 by aahadji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			printf("HAAAAAAAA test AAAAAAAAH");
 			i++;
 			lenght += add_char(format[i], &args);
 		}
@@ -88,46 +87,6 @@ int	ft_printf(const char *format, ...)
 
 int	main(void)
 {
-	int	num;
-
-	// Test for %u (unsigned integer)
-	printf("Standard printf:\n");
-	printf("Unsigned integer test: %u\n", 12345);
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Unsigned integer test: %u\n", 12345);
-	/// Test for %x (hexadecimal, lowercase)
-	printf("Standard printf:\n");
-	printf("Hexadecimal (lowercase) test: %x\n", 255);
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Hexadecimal (lowercase) test: %x\n", 255);
-	// Test for %X (hexadecimal, uppercase)
-	printf("Standard printf:\n");
-	printf("Hexadecimal (uppercase) test: %X\n", 255);
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Hexadecimal (uppercase) test: %X\n", 255);
-	// Test for %p (pointer address)
-	num = 42;
-	printf("Standard printf:\n");
-	printf("Pointer test: %p\n", &num);
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Pointer test: %p\n", &num);
-	// Test for %% (percent sign)
-	printf("Standard printf:\n");
-	printf("Percent test: %%\n");
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Percent test: %%\n");
-	// Test for %d and %i (signed integers)
-	printf("Standard printf:\n");
-	printf("Signed integer test (d): %d\n", -12345);
-	printf("Signed integer test (i): %i\n", 12345);
-	ft_printf("Custom ft_printf:\n");
-	ft_printf("Signed integer test (d): %d \n", -12345);
-	ft_printf("Signed integer test (i): %i \n", 12345);
-	// Additional boundary tests
-	printf("Boundary Tests:\n");
-	printf("INT_MAX: %d, INT_MIN: %d\n", INT_MAX, INT_MIN);
-	ft_printf("INT_MAX: %d, INT_MIN: %d\n", INT_MAX, INT_MIN);
-	printf("UINT_MAX: %u\n", UINT_MAX);
-	ft_printf("UINT_MAX: %u\n", UINT_MAX);
+	 ft_printf("%d \n", ft_printf("%%c"));
 	return (0);
 }
